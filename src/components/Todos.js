@@ -11,10 +11,9 @@ export const Todos = (props) => {
                         <h2 className='mb-4'>Our Todo List</h2>
                     </div>
                     <div className="col-12">
-                        
-                        <TodoItem
-                            todo={props.todolist[0]}
-                        />
+                        {props.todolist.map((todolist)=>{
+                            return <TodoItem todo={todolist} />
+                        })}
                     </div>
                 </div>
             </div>

@@ -4,19 +4,22 @@ import { Todos } from "./components/Todos";
 import { Footer } from "./components/Footer";
 
 function App() {
+  let onClick = ()=> {
+    console.log("On Clicked");
+  }
   let todolist = [
     {
-      sno: "1",
+      sno: 1,
       title: "Title1",
       desc: "Descriptions1"
     },
     {
-      sno: "2",
+      sno: 2,
       title: "Title2",
       desc: "Descriptions2"
     },
     {
-      sno: "3",
+      sno: 3,
       title: "Title3",
       desc: "Descriptions3"
     },
@@ -25,9 +28,7 @@ function App() {
     <div className="App">
       <Header />
 
-      <Todos 
-      todolist={todolist} 
-      />
+      <Todos todolist={todolist} onClick={onClick}/>
 
       <Footer />
     </div>
