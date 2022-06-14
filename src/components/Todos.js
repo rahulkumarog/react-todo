@@ -11,8 +11,9 @@ export const Todos = (props) => {
                         <h2 className='mb-4'>Our Todo List</h2>
                     </div>
                     <div className="col-12">
-                        {props.todolist.map((todolist)=>{
-                            return <TodoItem todo={todolist} />
+                        {props.todolist.length===0?"No Todos to display":
+                        props.todolist.map((todolist)=>{
+                            return <TodoItem todo={todolist} key={props.sno} deleteTodo={props.deleteTodo} />
                         })}
                     </div>
                 </div>

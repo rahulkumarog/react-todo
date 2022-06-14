@@ -6,19 +6,10 @@ import { AddTodo } from './components/AddTodo';
 import { useState } from 'react';
 
 function App() {
-  const [todolist, settodolist] = useState([
-    {
-      sno: 1,
-      title: "Title1",
-      desc: "Descriptions1"
-    },
-    {
-      sno: 2,
-      title: "Title2",
-      desc: "Descriptions2"
-    },
 
-  ]);
+  const deleteTodo = ()=>{
+    console.log("I am deleting the Todos");
+  }
 
   const addTodo = (title, desc)=>{
     console.log("I am adding this todo ",title, desc);
@@ -28,9 +19,24 @@ function App() {
       title: title,
       desc: desc,
     }
-    settodolist = [...todolist, myTodos];
     console.log(myTodos);
+    setTodolist([...todolist, myTodos]);
   }
+
+  const [todolist, setTodolist] = useState(
+    [
+      {
+        sno: 1,
+        title: "Title1",
+        desc: "Descriptions1"
+      },
+      {
+        sno: 2,
+        title: "Title2",
+        desc: "Descriptions2"
+      },
+    ]
+  );
 
   return (
     <div className="App">
@@ -38,7 +44,7 @@ function App() {
 
       <AddTodo addTodo={addTodo} />
 
-      <Todos todolist={todolist}/>
+      <Todos todolist={todolist} deleteTodo={deleteTodo} />
 
       <Footer />
     </div>
